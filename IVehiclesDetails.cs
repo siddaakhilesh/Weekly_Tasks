@@ -1,6 +1,7 @@
 using System;
 
-namespace IVehicle{
+namespace IVehicle
+{
 public interface IVehicleDetails
 {
     void GetDetails();

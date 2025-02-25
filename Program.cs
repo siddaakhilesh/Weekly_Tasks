@@ -9,12 +9,10 @@ class Program
 
         while (true)
         {
-            // Create a table with options
             var table = new Table();
             table.AddColumn("Option");
             table.AddColumn("Description");
 
-            // Add rows with the menu options
             table.AddRow("[bold yellow]1[/]", "[green]Add Car[/]");
             table.AddRow("[bold yellow]2[/]", "[green]Add Bike[/]");
             table.AddRow("[bold yellow]3[/]", "[cyan]Display All Vehicles[/]");
@@ -22,20 +20,16 @@ class Program
             table.AddRow("[bold yellow]5[/]", "[cyan]Display Only Bikes[/]");
             table.AddRow("[bold yellow]6[/]", "[red]Exit[/]");
 
-            // Wrap the table in a panel
             var panel = new Panel(table)
             {
                 Header = new PanelHeader("[bold yellow]Vehicle Rental Management[/]")
             };
 
-            // Render the panel with the table
             AnsiConsole.Write(panel);
 
-            // Get user input
             Console.Write("Enter your choice: ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
-            // Process the user choice
             if (choice == 1)
             {
                 CarDetails car = new CarDetails();

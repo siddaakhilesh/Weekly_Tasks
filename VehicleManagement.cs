@@ -4,10 +4,10 @@ using IVehicle;
 
 public class VehicleManagement
 {
-    // List to store all vehicles (both cars and bikes)
+    // Created list to store all vehicle details both cars and bikes
     private List<IVehicleDetails> vehicles = new List<IVehicleDetails>();
 
-    // Method to add a vehicle to the list
+    // adding a vehicle to the list
     public void AddVehicle(IVehicleDetails vehicle)
     {
         vehicles.Add(vehicle);
@@ -30,7 +30,7 @@ public class VehicleManagement
         }
     }
 
-    // Method to display only car details
+    //Method to display car details
     public void DisplayCarDetails()
     {
         bool carFound = false;
@@ -55,7 +55,7 @@ public class VehicleManagement
         }
     }
 
-    // Method to display only bike details
+    //method to display bike details
     public void DisplayBikeDetails()
     {
         bool bikeFound = false;

@@ -8,7 +8,6 @@ public class CarDetails : Vehicle, IVehicleDetails
     public int CC{get; set;}
     public int Rent = Convert.ToInt32(100);
 
-    // Implementing GetDetails from the interface
     public new void GetDetails()
     {
         base.GetDetails();

@@ -7,7 +7,6 @@ public class BikeDetails : Vehicle, IVehicleDetails
 
     public int CarRent = Convert.ToInt32(200);
 
-    // Implementing GetDetails from the interface
     public void GetDetails()
     {
         base.GetDetails();
@@ -16,8 +15,6 @@ public class BikeDetails : Vehicle, IVehicleDetails
         BikeType = Console.ReadLine();
         
     }
-
-    // Implementing DisplayDetails from the interface
     public void DisplayDetails()
     {
         var table = new Table();
