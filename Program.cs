@@ -1,4 +1,4 @@
-﻿using Spectre.Console;
+using Spectre.Console;
 using System;
 
 class Program
@@ -28,42 +28,48 @@ class Program
             AnsiConsole.Write(panel);
 
             Console.Write("Enter your choice: ");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            int choice;
+            while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
+            {
+                Console.WriteLine("[red]Invalid choice! Please enter a number between 1 and 6.[/]");
+                Console.Write("Enter your choice: ");
+            }
 
-            if (choice == 1)
+            switch (choice)
             {
-                CarDetails car = new CarDetails();
-                car.GetDetails();
-                vehicleManagement.AddVehicle(car);
-                Console.WriteLine("Car added successfully.[/]");
-            }
-            else if (choice == 2)
-            {
-                BikeDetails bike = new BikeDetails();
-                bike.GetDetails();
-                vehicleManagement.AddVehicle(bike);
-                Console.WriteLine("Bike added successfully.[/]");
-            }
-            else if (choice == 3)
-            {
-                vehicleManagement.DisplayAllVehicles();
-            }
-            else if (choice == 4)
-            {
-                vehicleManagement.DisplayCarDetails();
-            }
-            else if (choice == 5)
-            {
-                vehicleManagement.DisplayBikeDetails();
-            }
-            else if (choice == 6)
-            {
-                Console.WriteLine("Exiting the system.[/]");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice! Please try again.");
+                case 1:
+                    CarDetails car = new CarDetails();
+                    car.GetDetails();
+                    vehicleManagement.AddVehicle(car);
+                    Console.WriteLine("[green]Car added successfully.[/]");
+                    break;
+                
+                case 2:
+                    BikeDetails bike = new BikeDetails();
+                    bike.GetDetails();
+                    vehicleManagement.AddVehicle(bike);
+                    Console.WriteLine("[green]Bike added successfully.[/]");
+                    break;
+
+                case 3:
+                    vehicleManagement.DisplayAllVehicles();
+                    break;
+
+                case 4:
+                    vehicleManagement.DisplayCarDetails();
+                    break;
+
+                case 5:
+                    vehicleManagement.DisplayBikeDetails();
+                    break;
+
+                case 6:
+                    Console.WriteLine("[red]Exiting the system.[/]");
+                    return;
+
+                default:
+                    Console.WriteLine("[red]Invalid choice! Please try again.[/]");
+                    break;
             }
         }
     }
